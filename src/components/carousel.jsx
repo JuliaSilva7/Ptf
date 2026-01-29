@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
-import './Carousel.css'
+import './carousel.css'
 
 const images = Array.from({ length: 13 }, (_, index) => ({
   src: `/images/emasters/banner (${index + 1}).png`,
