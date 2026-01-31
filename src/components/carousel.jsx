@@ -1,16 +1,21 @@
-
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import './Carousel.css'
 
 const images = Array.from({ length: 13 }, (_, index) => ({
-  src: `/images/e-masters/banner (${index + 1}).png`,
+  src: `/images/emasters/banner (${index + 1}).png`,
   alt: `Banner ${index + 1} do projeto E-Masters`,
 }))
 
 export default function Carousel() {
   const [current, setCurrent] = useState(0)
+useEffect(() => {
+  const interval = setInterval(() => {
+    setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1))
+  }, 4000)
 
+  return () => clearInterval(interval)
+}, [])
   const previous = () => {
     setCurrent((prev) => (prev === 0 ? images.length - 1 : prev - 1))
   }
