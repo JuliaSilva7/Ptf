@@ -4,6 +4,7 @@ import {
   Menu, X, Code2, Database, Smartphone, Cpu, Layers3, ExternalLink,
   Sparkles, Terminal, ChevronRight
 } from 'lucide-react'
+import Carousel from './components/carousel'
 
 const GITHUB = 'https://github.com/JuliaSilva7'
 const LINKEDIN = 'https://www.linkedin.com/in/julia-silva7788/'
@@ -38,20 +39,20 @@ const projects = [
     demo: '',
     status: 'Sistema inteligente',
   },
-  {
-    id: 3,
-    number: '03',
-    title: 'E-Masters · Fórmula E',
-    category: 'Web',
-    subtitle: 'Estratégia, corrida e pontuação',
-    description: 'Conceito de jogo em que participantes escolhem pilotos e equipes para corridas e classificatórias, somando pontos conforme o desempenho.',
-    tags: ['JavaScript', 'Lógica', 'UI/UX'],
-    icon: Layers3,
-    visual: 'racing',
-    github: `${GITHUB}?tab=repositories`,
-    demo: '',
-    status: 'Jogo de estratégia',
-  },
+{
+  id: 3,
+  number: '03',
+  title: 'E-Masters · Fórmula E',
+  category: 'Web',
+  subtitle: 'Estratégia, corrida e pontuação',
+  description: 'Jogo interativo inspirado no Campeonato Mundial de Fórmula E, no qual os participantes selecionam pilotos e equipes, fazem previsões para as corridas e acumulam pontos conforme os resultados. O projeto conta com sistema de usuários, cálculo de pontuação e ranking.',
+  tags: ['React', 'JavaScript', 'Vite', 'CSS', 'JSON Server'],
+  icon: Layers3,
+  visual: 'racing',
+  github: 'https://github.com/JuliaSilva7/Formula-E',
+  demo: 'https://e-masters-three.vercel.app/',
+  status: 'Projeto publicado',
+},
   {
     id: 4,
     number: '04',
@@ -144,27 +145,59 @@ function ProjectVisual({ project }) {
   )
 }
 
+
+
 function ProjectCard({ project, index }) {
   return (
     <article
-  className="project-card"
-  style={{ '--delay': `${index * 90}ms` }}
->
-      <ProjectVisual project={project} />
+      className="project-card"
+      style={{ '--delay': `${index * 90}ms` }}
+    >
+      {project.id === 3 ? (
+        <Carousel />
+      ) : (
+        <ProjectVisual project={project} />
+      )}
+
       <div className="project-body">
-        <div className="project-meta"><span>{project.category}</span><span>{project.status}</span></div>
+        <div className="project-meta">
+          <span>{project.category}</span>
+          <span>{project.status}</span>
+        </div>
+
         <h3>{project.title}</h3>
+
         <p className="project-subtitle">{project.subtitle}</p>
-        <p className="project-description">{project.description}</p>
-        <div className="tag-list">{project.tags.map(tag => <span className="tag" key={tag}>{tag}</span>)}</div>
+
+        <p className="project-description">
+          {project.description}
+        </p>
+
+        <div className="tag-list">
+          {project.tags.map(tag => (
+            <span className="tag" key={tag}>
+              {tag}
+            </span>
+          ))}
+        </div>
+
         <div className="project-links">
-          <a href={project.github} target="_blank" rel="noreferrer">Ver no GitHub <ArrowUpRight size={15} /></a>
-          {project.demo && <a href={project.demo} target="_blank" rel="noreferrer">Demo <ExternalLink size={14} /></a>}
+          <a href={project.github} target="_blank" rel="noreferrer">
+            Ver no GitHub <ArrowUpRight size={15} />
+          </a>
+
+          {project.demo && (
+            <a href={project.demo} target="_blank" rel="noreferrer">
+              Demo <ExternalLink size={14} />
+            </a>
+          )}
         </div>
       </div>
     </article>
   )
 }
+
+
 
 function App() {
   useReveal()
