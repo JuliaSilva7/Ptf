@@ -1,0 +1,113 @@
+
+/* CARROSSEL FORD COMPETITIVA */
+
+.ford-carousel {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #09090F;
+}
+
+.ford-carousel .ford-carousel-image-container {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  overflow: hidden;
+  background: #09090F;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ford-carousel .ford-carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.ford-carousel .ford-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  background: rgba(10, 15, 25, 0.85);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+  z-index: 2;
+}
+
+.ford-carousel .ford-carousel-arrow:hover {
+  background: #0057A8;
+}
+
+.ford-carousel .ford-carousel-prev {
+  left: 12px;
+}
+
+.ford-carousel .ford-carousel-next {
+  right: 12px;
+}
+
+.ford-carousel .ford-carousel-counter {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  background: rgba(10, 15, 25, 0.85);
+  color: #fff;
+  font-size: 12px;
+}
+
+.ford-carousel .ford-carousel-dots {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 14px 0;
+}
+
+.ford-carousel .ford-carousel-dot {
+  width: 7px;
+  height: 7px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #687080;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.ford-carousel .ford-carousel-dot.active {
+  width: 22px;
+  border-radius: 10px;
+  background: #1684D8;
+}
+
+/* TABLETS */
+@media (max-width: 900px) {
+  .ford-carousel .ford-carousel-image-container {
+    height: 480px;
+  }
+}
+
+/* CELULARES */
+@media (max-width: 600px) {
+  .ford-carousel .ford-carousel-image-container {
+    height: 450px;
+  }
+
+  .ford-carousel .ford-carousel-arrow {
+    width: 32px;
+    height: 32px;
+  }
+}

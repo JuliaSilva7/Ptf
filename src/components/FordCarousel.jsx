@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 import './carousel.css'
 
 const images = Array.from({ length: 9 }, (_, index) => ({
-  src: `/images/ford-competitiva/Screenshot_1 (${index + 1}).png`,
+  src: `/images/ford_competitiva/Screenshot_1 (${index + 1}).png`,
   alt: `Tela ${index + 1} do aplicativo Ford Competitiva`,
 }))
 
