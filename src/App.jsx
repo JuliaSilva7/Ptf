@@ -5,6 +5,7 @@ import {
   Sparkles, Terminal, ChevronRight
 } from 'lucide-react'
 import Carousel from './components/carousel'
+import FordCarousel from './components/FordCarousel'
 
 const GITHUB = 'https://github.com/JuliaSilva7'
 const LINKEDIN = 'https://www.linkedin.com/in/julia-silva7788/'
@@ -21,9 +22,10 @@ const projects = [
     tags: ['React Native', 'Expo', 'JavaScript'],
     icon: Smartphone,
     visual: 'ford',
-    github: `${GITHUB}?tab=repositories`,
+    github: 'https://github.com/JuliaSilva7/Ford-Competitiva',
+    release: 'https://github.com/JuliaSilva7/Ford-Competitiva/releases/tag/v1.0.0',
     demo: '',
-    status: 'Aplicativo mobile',
+    status: 'Aplicativo mobile · v1.0.0',
   },
   {
     id: 2,
@@ -39,20 +41,20 @@ const projects = [
     demo: '',
     status: 'Sistema inteligente',
   },
-{
-  id: 3,
-  number: '03',
-  title: 'E-Masters · Fórmula E',
-  category: 'Web',
-  subtitle: 'Estratégia, corrida e pontuação',
-  description: 'Jogo interativo inspirado no Campeonato Mundial de Fórmula E, no qual os participantes selecionam pilotos e equipes, fazem previsões para as corridas e acumulam pontos conforme os resultados. O projeto conta com sistema de usuários, cálculo de pontuação e ranking.',
-  tags: ['React', 'JavaScript', 'Vite', 'CSS', 'JSON Server'],
-  icon: Layers3,
-  visual: 'racing',
-  github: 'https://github.com/JuliaSilva7/Formula-E',
-  demo: 'https://e-masters-three.vercel.app/',
-  status: 'Projeto publicado',
-},
+  {
+    id: 3,
+    number: '03',
+    title: 'E-Masters · Fórmula E',
+    category: 'Web',
+    subtitle: 'Estratégia, corrida e pontuação',
+    description: 'Jogo interativo inspirado no Campeonato Mundial de Fórmula E, no qual os participantes selecionam pilotos e equipes, fazem previsões para as corridas e acumulam pontos conforme os resultados. O projeto conta com sistema de usuários, cálculo de pontuação e ranking.',
+    tags: ['React', 'JavaScript', 'Vite', 'CSS', 'JSON Server'],
+    icon: Layers3,
+    visual: 'racing',
+    github: 'https://github.com/JuliaSilva7/Formula-E',
+    demo: 'https://e-masters-three.vercel.app/',
+    status: 'Projeto publicado',
+  },
   {
     id: 4,
     number: '04',
@@ -153,7 +155,9 @@ function ProjectCard({ project, index }) {
       className="project-card"
       style={{ '--delay': `${index * 90}ms` }}
     >
-      {project.id === 3 ? (
+      {project.id === 1 ? (
+        <FordCarousel />
+      ) : project.id === 3 ? (
         <Carousel />
       ) : (
         <ProjectVisual project={project} />
@@ -186,9 +190,15 @@ function ProjectCard({ project, index }) {
             Ver no GitHub <ArrowUpRight size={15} />
           </a>
 
+          {project.release && (
+            <a href={project.release} target="_blank" rel="noreferrer">
+              Baixar APK <ExternalLink size={14} />
+            </a>
+          )}
+
           {project.demo && (
             <a href={project.demo} target="_blank" rel="noreferrer">
-              Demo <ExternalLink size={14} />
+              Abrir Site <ExternalLink size={14} />
             </a>
           )}
         </div>
@@ -261,20 +271,20 @@ function App() {
             <p>Ideias, estudos e soluções que representam minha evolução e meus interesses na área de tecnologia.</p>
           </div>
           <div className="filter-row" aria-label="Filtrar projetos">
-           
-<div className="filter-buttons" role="group" aria-label="Categorias de projetos">
-  {filters.map((item) => (
-    <button
-      key={item}
-      type="button"
-      aria-pressed={filter === item}
-      onClick={() => setFilter(item)}
-      className={filter === item ? 'filter active' : 'filter'}
-    >
-      {item}
-    </button>
-  ))}
-</div>
+
+            <div className="filter-buttons" role="group" aria-label="Categorias de projetos">
+              {filters.map((item) => (
+                <button
+                  key={item}
+                  type="button"
+                  aria-pressed={filter === item}
+                  onClick={() => setFilter(item)}
+                  className={filter === item ? 'filter active' : 'filter'}
+                >
+                  {item}
+                </button>
+              ))}
+            </div>
 
             <span className="project-count">0{visibleProjects.length} PROJETOS</span>
           </div>
