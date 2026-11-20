@@ -224,7 +224,7 @@ function App() {
           <div className="hero-copy">
             <div className="eyebrow"><span className="status-dot" /> DISPONÍVEL PARA OPORTUNIDADES</div>
             <h1>Transformando<br />ideias em <span className="gradient-text">soluções</span><br />digitais<span className="accent-dot">.</span></h1>
-            <p className="hero-description">Olá, eu sou a Julia — estudante de Engenharia de Software, apaixonada por tecnologia, desenvolvimento e dados. Gosto de transformar problemas reais em experiências digitais úteis.</p>
+            <p className="hero-description">Olá, eu sou a Julia. Sou estudante de Engenharia de Software, apaixonada por tecnologia, desenvolvimento Web, Mobile e Back-End. Gosto de transformar problemas reais em experiências digitais úteis.</p>
             <div className="hero-actions">
               <a className="button button-primary" href="#projetos">Explorar projetos <ArrowDownRight size={17} /></a>
               <a className="button button-ghost" href="#contato">Entrar em contato <ArrowUpRight size={16} /></a>
